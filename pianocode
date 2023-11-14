@@ -1,0 +1,35 @@
+import pygame
+
+# Инициализация библиотеки Pygame
+pygame.init()
+
+# Создание окна Pygame (необязательно)
+window = pygame.display.set_mode((200, 200))
+
+# Определение нотных клавиш и их звуков
+key_sounds = {
+    pygame.K_a: "DO.mp3",
+    pygame.K_s: "RE.mp3",
+    pygame.K_d: "MI.mp3",
+    pygame.K_f: "FA.mp3",
+    pygame.K_g: "SOL.mp3",
+    pygame.K_h: "LYA.mp3",
+    pygame.K_j: "SI.mp3",
+    pygame.K_k: "DO2.mp3",
+}
+
+# Загрузка звуков
+sounds = {key: pygame.mixer.Sound(sound) for key, sound in key_sounds.items()}
+
+# Основной цикл программы
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN and event.key in sounds:
+            # Воспроизводим звук при нажатии клавиши
+            sounds[event.key].play()
+
+# Завершение программы
+pygame.quit()
