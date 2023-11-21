@@ -3,8 +3,8 @@ import pygame
 # Инициализация библиотеки Pygame
 pygame.init()
 
-# Создание окна Pygame (необязательно)
-window = pygame.display.set_mode((200, 200))
+# Создание окна Pygame
+window = pygame.display.set_mode((800, 200))
 
 # Определение нотных клавиш и их звуков
 key_sounds = {
@@ -21,6 +21,24 @@ key_sounds = {
 # Загрузка звуков
 sounds = {key: pygame.mixer.Sound(sound) for key, sound in key_sounds.items()}
 
+# Определение цветов
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
+# Определение параметров клавиш
+key_width = 50
+key_height = 200
+gap = 5
+
+# Определение начальных координат клавиш
+key_coordinates = {}
+current_x = 0
+
+# Создание координат для клавиш
+for key, sound in key_sounds.items():
+    key_coordinates[key] = (current_x, 0)
+    current_x += key_width + gap
+
 # Основной цикл программы
 running = True
 while running:
@@ -30,6 +48,18 @@ while running:
         if event.type == pygame.KEYDOWN and event.key in sounds:
             # Воспроизводим звук при нажатии клавиши
             sounds[event.key].play()
+
+    # Отрисовка фортепиано
+    window.fill(WHITE)
+    for key, coordinates in key_coordinates.items():
+        if pygame.key.get_pressed()[key]:
+            # Если клавиша нажата, рисуем активную клавишу
+            pygame.draw.rect(window, BLACK, (*coordinates, key_width, key_height))
+        else:
+            # Если клавиша не нажата, рисуем обычную клавишу
+            pygame.draw.rect(window, BLACK, (*coordinates, key_width, key_height), 1)
+
+    pygame.display.flip()
 
 # Завершение программы
 pygame.quit()
