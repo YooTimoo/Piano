@@ -15,3 +15,5 @@ As a result, created applications that develop creativity and love with music in
 First, install a library:                                                                                                                                                    
 
 ![image](https://github.com/YooTimoo/Piano/assets/117880384/a33fe07c-de57-4356-aa83-59b34a558c20)
+
+Next, download a notes of piano, in file "pianonotes.zip":  https://github.com/YooTimoo/Piano/blob/main/pianonotes.zip
