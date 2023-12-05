@@ -12,6 +12,6 @@ Cat Piano uses language library capabilities, combined with the benefits of obje
 As a result, created applications that develop creativity and love with music in users.
 
 
-First, install a library:
+First, install a library:                                                                                                                                                    
 
-[image](https://github.com/YooTimoo/Piano/assets/117880384/a33fe07c-de57-4356-aa83-59b34a558c20)
+![image](https://github.com/YooTimoo/Piano/assets/117880384/a33fe07c-de57-4356-aa83-59b34a558c20)
