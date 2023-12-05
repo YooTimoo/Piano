@@ -1,0 +1,106 @@
+import pygame
+
+pygame.init()
+
+# Definition of piano keys and their sounds
+key_sounds = {
+    pygame.K_a: "DO.mp3",
+    pygame.K_s: "RE.mp3",
+    pygame.K_d: "MI.mp3",
+    pygame.K_f: "FA.mp3",
+    pygame.K_g: "SOL.mp3",
+    pygame.K_h: "LYA.mp3",
+    pygame.K_j: "SI.mp3",
+    pygame.K_k: "DO2.mp3",
+}
+
+# Load sounds
+sounds = {key: pygame.mixer.Sound(sound) for key, sound in key_sounds.items()}
+
+# Definition of colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+GRAY = (200, 200, 200)
+
+# Definition of key parameters
+key_width = 100
+key_height = 400
+gap = 1
+
+# Definition of initial key coordinates
+key_coordinates = {}
+current_x = 0
+
+# Create coordinates for keys
+for key, sound in key_sounds.items():
+    key_coordinates[key] = (current_x, 0)
+    current_x += key_width + gap
+
+# Calculate window dimensions
+num_keys = len(key_sounds)
+window_width = num_keys * (key_width + gap) + 200  # Added 200 for the slider and padding
+window_height = key_height
+
+# Create Pygame window
+window = pygame.display.set_mode((window_width, window_height))
+
+# Set window title
+pygame.display.set_caption('PianoCat')  # Replace with your desired title
+
+# Define font
+font = pygame.font.Font(None, 72)  # Use a larger font size
+
+# Definition of volume slider
+volume_slider_width = 20
+volume_slider_height = key_height
+volume_slider_x = window_width - volume_slider_width
+volume_slider_y = 0
+volume_slider_value = 1.0  # Initially set to maximum value
+
+# Main program loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN and event.key in sounds:
+            # Play sound when a key is pressed, considering the volume level
+            sounds[event.key].set_volume(volume_slider_value)
+            sounds[event.key].play()
+
+    # Handle mouse events for the volume slider
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    mouse_click = pygame.mouse.get_pressed()
+
+    if volume_slider_x < mouse_x < volume_slider_x + volume_slider_width and \
+       volume_slider_y < mouse_y < volume_slider_y + volume_slider_height:
+        if mouse_click[0]:  # Left mouse button
+            volume_slider_value = (mouse_y - volume_slider_y) / volume_slider_height
+            volume_slider_value = max(0, min(volume_slider_value, 1))
+
+    # Draw the piano
+    window.fill(WHITE)
+
+    for key, coordinates in key_coordinates.items():
+        key_rect = pygame.Rect(*coordinates, key_width, key_height)
+        if pygame.key.get_pressed()[key]:
+            # If the key is pressed, draw the active key
+            pygame.draw.rect(window, BLACK, key_rect)
+        else:
+            # If the key is not pressed, draw the regular key
+            pygame.draw.rect(window, BLACK, key_rect, 1)
+
+        # Display the key name
+        key_text = font.render(pygame.key.name(key).upper(), True, BLACK)  # Use uppercase letters
+        text_rect = key_text.get_rect(center=key_rect.center)
+        window.blit(key_text, text_rect)
+
+    # Draw the volume slider
+    pygame.draw.rect(window, GRAY, (volume_slider_x, volume_slider_y, volume_slider_width, volume_slider_height))
+    pygame.draw.rect(window, BLACK, (volume_slider_x, volume_slider_y + (1 - volume_slider_value) * volume_slider_height,
+                                     volume_slider_width, volume_slider_value * volume_slider_height))
+
+    pygame.display.flip()
+
+# Quit the program
+pygame.quit()
