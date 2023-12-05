@@ -26,3 +26,12 @@ Enjoy a playing of my Piano!
 History: 
 1) I created a main notes and visualisation:                                                                                                                         
    ![image](https://github.com/YooTimoo/Piano/assets/117880384/bfc8a76c-fb3e-4d72-a74d-68d0a0fa82e5)
+
+
+2) To make it easier for the users to understand, I have added the name of the keyboard keys to be pressed for sound in interface.
+                                                                                                                                                                     ![image](https://github.com/YooTimoo/Piano/assets/117880384/e06c5b6c-68e8-42a2-aab3-65ea765d96fa)
+
+3) I added a volume slider:
+                                                                                                                                                                     ![image](https://github.com/YooTimoo/Piano/assets/117880384/1ae4404f-c728-4b47-a03a-a340d33391ed)
+
+
