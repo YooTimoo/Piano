@@ -32,6 +32,8 @@ History:
                                                                                                                                                                      ![image](https://github.com/YooTimoo/Piano/assets/117880384/e06c5b6c-68e8-42a2-aab3-65ea765d96fa)
 
 3) I added a volume slider:
-                                                                                                                                                                     ![image](https://github.com/YooTimoo/Piano/assets/117880384/1ae4404f-c728-4b47-a03a-a340d33391ed)
+                                                                                                                                                                    ![image](https://github.com/YooTimoo/Piano/assets/117880384/88a4ee56-6034-4d85-9c4a-9a6188fb7ca7)
+
+4) THE END!
 
 
