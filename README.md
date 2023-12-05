@@ -17,3 +17,12 @@ First, install a library:
 ![image](https://github.com/YooTimoo/Piano/assets/117880384/a33fe07c-de57-4356-aa83-59b34a558c20)
 
 Next, download a notes of piano, in file "pianonotes.zip":  https://github.com/YooTimoo/Piano/blob/main/pianonotes.zip
+
+Enjoy a playing of my Piano!
+
+-----------------------------------------
+
+
+History: 
+1) I created a main notes and visualisation:                                                                                                                         
+   ![image](https://github.com/YooTimoo/Piano/assets/117880384/bfc8a76c-fb3e-4d72-a74d-68d0a0fa82e5)
