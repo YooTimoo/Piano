@@ -10,3 +10,7 @@ Also will add guitar sounds, bass and drums, beats and rhythms to create a full 
 Cat Piano uses language library capabilities, combined with the benefits of object-oriented programming, because in the same code we used note connection and graphical changes when pressing keys. The objects in my code are sound and graphics that perfectly match each other. 
 
 As a result, created applications that develop creativity and love with music in users.
+
+
+First, install a library:
+![image](https://github.com/YooTimoo/Piano/assets/117880384/a33fe07c-de57-4356-aa83-59b34a558c20)
